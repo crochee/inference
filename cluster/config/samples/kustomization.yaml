@@ -1,0 +1,5 @@
+## Append samples of your project ##
+resources:
+- term_v1_cloudterm.yaml
+- configmap.yaml
+# +kubebuilder:scaffold:manifestskustomizesamples

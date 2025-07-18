@@ -1,0 +1,25 @@
+apiVersion: term.cts.io/v1
+kind: CloudTerm
+metadata:
+  labels:
+    app.kubernetes.io/name: cluster
+    app.kubernetes.io/managed-by: kustomize
+  name: cloudterm-sample
+  annotations:
+    traceparent: "00-4bf92f3577b34da6a3ce929d0e0e4736-00f067aa0ba902b7-01"
+spec:
+  replicas: 1
+  property: "op=spec"
+  containers:
+    - name: cloudterm
+      image: hashicorp/http-echo:0.2.3
+      requests:
+        cpu: 100m
+        memory: 100Mi
+  networks:
+    - network_id: "network-id-01"
+      fixed_ips:
+        - subnet_id: "subnet-id-01"
+      security_groups:
+        - "sg1"
+  podSpecConfig: "default"
