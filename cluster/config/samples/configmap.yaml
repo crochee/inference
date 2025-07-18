@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: default
+data:
+  podSpec: |
+    containers:
+      - name: cloudterm
+        args:
+        - -text=hello-from-yaml
+        - -listen=:8080
+        ports:
+          - containerPort: 8080
+            protocol: TCP
